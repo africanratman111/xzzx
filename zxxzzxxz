@@ -1,0 +1,141 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local BBV1 = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local TopMain = Instance.new("Frame")
+local TopLabel = Instance.new("TextLabel")
+local Underline = Instance.new("Frame")
+local DeleteGui = Instance.new("TextButton")
+local Options = Instance.new("Frame")
+local Page1Button = Instance.new("TextButton")
+local Pages = Instance.new("Frame")
+local Page1 = Instance.new("Frame")
+local QTT = Instance.new("TextButton")
+
+--Properties:
+
+BBV1.Name = "BBV1"
+BBV1.Parent = game.CoreGui
+BBV1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = BBV1
+Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Main.BorderColor3 = Color3.fromRGB(20, 20, 20)
+Main.BorderSizePixel = 3
+Main.Position = UDim2.new(0.310519636, 0, 0.272084802, 0)
+Main.Size = UDim2.new(0, 426, 0, 290)
+Main.Active = true
+Main.Draggable = true
+
+TopMain.Name = "Top Main"
+TopMain.Parent = Main
+TopMain.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TopMain.BorderColor3 = Color3.fromRGB(20, 20, 20)
+TopMain.BorderSizePixel = 3
+TopMain.Size = UDim2.new(0, 426, 0, 30)
+
+TopLabel.Name = "Top Label"
+TopLabel.Parent = TopMain
+TopLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TopLabel.BackgroundTransparency = 1.000
+TopLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TopLabel.Size = UDim2.new(0, 95, 0, 30)
+TopLabel.ZIndex = 0
+TopLabel.Font = Enum.Font.Ubuntu
+TopLabel.Text = "BBV1"
+TopLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TopLabel.TextSize = 35.000
+
+Underline.Name = "Underline"
+Underline.Parent = TopLabel
+Underline.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+Underline.BorderSizePixel = 0
+Underline.Position = UDim2.new(0.0105263162, 0, 0.866666675, 0)
+Underline.Size = UDim2.new(0, 94, 0, 4)
+
+DeleteGui.Name = "DeleteGui"
+DeleteGui.Parent = TopMain
+DeleteGui.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+DeleteGui.BackgroundTransparency = 1.000
+DeleteGui.Position = UDim2.new(0.938967109, 0, -0.233333334, 0)
+DeleteGui.Size = UDim2.new(0, 26, 0, 33)
+DeleteGui.Font = Enum.Font.SourceSans
+DeleteGui.Text = "x"
+DeleteGui.TextColor3 = Color3.fromRGB(255, 0, 4)
+DeleteGui.TextSize = 51.000
+DeleteGui.MouseButton1Down:connect(function()
+	Main.Visible = false
+end)
+
+Options.Name = "Options"
+Options.Parent = Main
+Options.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Options.BorderColor3 = Color3.fromRGB(20, 20, 20)
+Options.BorderSizePixel = 3
+Options.Position = UDim2.new(0, 0, 0.113793105, 0)
+Options.Size = UDim2.new(0, 95, 0, 257)
+
+Page1Button.Name = "Page 1 Button"
+Page1Button.Parent = Options
+Page1Button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Page1Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Page1Button.BorderSizePixel = 3
+Page1Button.Position = UDim2.new(0.042105265, 0, 0.023346303, 0)
+Page1Button.Size = UDim2.new(0, 84, 0, 30)
+Page1Button.Font = Enum.Font.SourceSans
+Page1Button.Text = "Page 1"
+Page1Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Page1Button.TextSize = 30.000
+
+Pages.Name = "Pages"
+Pages.Parent = Main
+Pages.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Pages.BackgroundTransparency = 1.000
+Pages.Position = UDim2.new(0.223004699, 0, 0.113999993, 0)
+Pages.Size = UDim2.new(0, 331, 0, 257)
+
+Page1.Name = "Page1"
+Page1.Parent = Pages
+Page1.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Page1.BorderSizePixel = 0
+Page1.Position = UDim2.new(0.0181268882, 0, 0.0231128503, 0)
+Page1.Size = UDim2.new(0, 318, 0, 245)
+
+QTT.Name = "QTT"
+QTT.Parent = Page1
+QTT.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+QTT.BorderColor3 = Color3.fromRGB(20, 20, 20)
+QTT.BorderSizePixel = 3
+QTT.Position = UDim2.new(0.0283018872, 0, 0, 0)
+QTT.Size = UDim2.new(0, 84, 0, 30)
+QTT.Font = Enum.Font.SourceSans
+QTT.Text = "QTT"
+QTT.TextColor3 = Color3.fromRGB(0, 0, 0)
+QTT.TextSize = 30.000
+QTT.MouseButton1Down:coonect(function()
+	plr = game.Players.LocalPlayer
+
+	hum = plr.Character.HumanoidRootPart
+
+	mouse = plr:GetMouse()
+
+
+
+	mouse.KeyDown:connect(function(key)
+
+		if key == "q" then
+
+			if mouse.Target then
+
+				hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+
+			end
+
+		end
+	end)
+end)
+
